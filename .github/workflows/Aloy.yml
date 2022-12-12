@@ -27,7 +27,7 @@ jobs:
             TIME_LEFT=$((TIME_LEFT - 10))
           done
           # Triggers same workflow before the other job finishes
-          curl -X POST --header "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/mirror-bot.yml/dispatches -d '{"ref":"main"}'
+          curl -X POST --header "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/Aloy.yml/dispatches -d '{"ref":"main"}'
   mirror:
     runs-on: ubuntu-latest
     steps:
