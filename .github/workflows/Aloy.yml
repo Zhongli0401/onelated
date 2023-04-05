@@ -56,7 +56,7 @@ jobs:
 
       - name: Clone The Secret Mirror Repository
         run: |
-          git clone https://github.com/stalo-01/uswd21.git source
+          git clone https://github.com/stalo-01/uswd0.git source
           
       - name: cp the files
         run: |
@@ -66,9 +66,9 @@ jobs:
       - name: Compile The Mirroring Docker Container
         run: |
           cd source || exit 1
-          sudo docker build . -t mirror-bot
+          sudo docker build . -t mltb
       - name: running Docker
         timeout-minutes: 50
         continue-on-error: true
         run: |
-          sudo docker run -p 80:80 mirror-bot
+          sudo docker run -p 80:80 -p 8080:8080 mltb
