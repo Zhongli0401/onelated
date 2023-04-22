@@ -28,7 +28,7 @@ jobs:
           done
           # Triggers same workflow before the other job finishes
           curl -X POST --header "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/Aloy.yml/dispatches -d '{"ref":"main"}'
-   mirror:
+mirror:
     runs-on: ubuntu-latest
     steps:
     
@@ -53,7 +53,7 @@ jobs:
           git config --global credential.helper store
           echo "https://${{ secrets.GHUSER }}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
 
-       - name: Docker Related
+      - name: Docker Related
         run: |
           sudo apt-get remove docker docker-engine docker.io containerd runc
           sudo rm -rf /var/lib/docker
