@@ -1,19 +1,19 @@
-name: loy
+ name: loy
 
-on:
+ on:
   workflow_dispatch:
 
-defaults:
+ defaults:
   run:
     shell: bash
 
-env:
+ env:
   # Change these values if you have forked it for your own works
-  GitHubMail: "sauvik963@gmail.com"
+  GitHubMail: "aoikaze082@gmail.com"
   GitHubName: "stalo-01" 
   Branch: "master"
 
-jobs:
+ jobs:
 
   trigger:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
           done
           # Triggers same workflow before the other job finishes
           curl -X POST --header "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/Aloy.yml/dispatches -d '{"ref":"main"}'
-mirror:
+  mirror:
     runs-on: ubuntu-latest
     steps:
     
@@ -80,7 +80,7 @@ mirror:
 
       - name: Clone The Secret Mirror Repository
         run: |
-          git clone https://github.com/stalo-01/uswd0 source
+          git clone https://github.com/stalo-01/uswd21.git source
           
       - name: cp the files
         run: |
